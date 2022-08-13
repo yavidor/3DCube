@@ -1,7 +1,3 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 import math
 import pygame
 
@@ -14,7 +10,7 @@ class Point3D:
         self.z = int(_coordinates[2]) * _size + _offset
         self.offset = _offset
         self.size = _size
-        self.binary = f'{int((self.x - self.offset) / self.size)}{int((self.y - self.offset) / self.size)}{int((self.z - self.offset) / self.size)} '
+        self.binary = f'{int((self.x - self.offset) / self.size)}{int((self.y - self.offset) / self.size)}{int((self.z - self.offset) / self.size)}'
 
     def neighbors(self):
         ret = []
@@ -108,7 +104,9 @@ def setup():
 def draw(cube, screen):
     screen.fill((0, 0, 0))
     for i in range(len(cube)):
-        cube[i].rotate(0.02, 'y')
+        cube[i].rotate(0.05, 'x')
+        cube[i].rotate(0.05, 'y')
+        cube[i].rotate(0.05, 'z')
         pygame.draw.circle(screen, (255, 255, 255),
                            center_origin(screen, cube[i].get2dcoords()), 5)
     for i in range(len(cube)):
